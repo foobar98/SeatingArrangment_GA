@@ -10,10 +10,10 @@ Given a seating layout and a happiness matrix which defines the happiness value 
 
 ## Sample Input Working
 
-Best seating arrangement after 50 generations:
-6 5 1
-7 5 4
-8 9 3
+Best seating arrangement after 50 generations:<br/>
+6 5 1<br/>
+7 5 4<br/>
+8 9 3<br/>
 With happiness score: 153.3606789250354
 
 ![](graph.png)

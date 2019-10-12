@@ -8,7 +8,7 @@ Given a seating layout and a happiness matrix which defines the happiness value 
 2. Randomise input for large data sets (currently hard-coded).
 ```
 
-## Sample Input Working
+## Sample Output
 
 Best seating arrangement after 50 generations:<br/>
 6 5 1<br/>

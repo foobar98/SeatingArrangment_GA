@@ -35,7 +35,7 @@ def getFitness(individual,happiness):
         for j in range(col):
             val = individual[i][j]
             chf = 0.0
-            # Take into account persons seated at all 8 directions
+            # Taking into account persons seated at all 8 directions
             for k in range(8):
                 ni = i+dy[k]
                 nj = j+dx[k]
@@ -108,7 +108,7 @@ def crossover(parent1,parent2):
     # Return generated offsprings
     return (child1,child2)
 
-# Mutation function
+# Function to perform mutation
 def mutate(individual):
     row = len(individual)
     col = len(individual[0])

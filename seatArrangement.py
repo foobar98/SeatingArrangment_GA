@@ -55,21 +55,15 @@ def selectParent(population):
     size = len(population)
 
     # Randomly select 2 solutions from mating pool
-    idx1 = random.randint(0,size-1)
-    idx2 = random.randint(0,size-1)
+    solution1 = population[random.randint(0,size-1)]
+    solution2 = population[random.randint(0,size-1)]
     
     # Apply tournament selection method to select parent
     r = random.uniform(0,1)
     if r<0.75:
-        if population[idx1][1]>population[idx2][1]:
-            return population[idx1][0]
-        else:
-            return population[idx2][0]
+        return solution1[0] if solution1[1]>solution2[1] else return solution2[0]
     else:
-        if population[idx1][1]>population[idx2][1]:
-            return population[idx2][0]
-        else:
-            return population[idx1][0]
+        return solution2[0] if solution1[1]>solution2[1] else return solution1[0]
 
 # Crossover function
 def crossover(parent1,parent2):
@@ -82,28 +76,24 @@ def crossover(parent1,parent2):
 
     # Generate offsprings by Horizontal Substring Crossover Method
     child1 = []
-    for i in range(cpI):
-        child1.append(parent1[i])
+    child1.extend(parent1[:cpI])
     rowMid = []
     for j in range(cpJ+1):
         rowMid.append(parent1[cpI][j])
     for j in range(cpJ+1,col):
         rowMid.append(parent2[cpI][j])
     child1.append(rowMid)
-    for i in range(cpI+1,row):
-        child1.append(parent2[i])
+    child1.extend(parent2[cpI+1:row])
 
     child2 = []
-    for i in range(cpI):
-        child2.append(parent2[i])
+    child2.extend(parent2[:cpI])
     rowMid = []
     for j in range(cpJ+1):
         rowMid.append(parent2[cpI][j])
     for j in range(cpJ+1,col):
         rowMid.append(parent1[cpI][j])
     child2.append(rowMid)
-    for i in range(cpI+1,row):
-        child2.append(parent1[i])
+    child2.extend(parent1[cpI+1:row])
 
     # Return generated offsprings
     return (child1,child2)
